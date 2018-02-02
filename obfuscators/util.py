@@ -13,6 +13,7 @@ from Crypto.Cipher import DES
 
 def logger(log_info):  # Log
     logging.debug('[' + base_dir().split('/')[-2] + ']:' + log_info)
+    #logging.debug(log_info)
 
 
 def shuffle_list(data_list):  # Shuffle a list

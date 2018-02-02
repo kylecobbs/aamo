@@ -10,6 +10,7 @@ def crypt_identifier(param_value):
 
 def change_meta(res_root):
     value_name = '{http://schemas.android.com/apk/res/android}name'
+    print "Value name",value_name
     for res_line in res_root.iter('meta-data'):  # For each resource
         param_value = res_line.get(value_name)
         if param_value is not None:
@@ -133,6 +134,7 @@ def obfuscate():
     except e.FileNotFound:
         return
     res_root = res_xml.getroot()  # The root of the XML file
+    print "Root", res_root
     edited_res = set(
         list(change_all_res(res_root)) +
         list(change_meta(u.load_manifest().getroot()))

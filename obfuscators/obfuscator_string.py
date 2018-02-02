@@ -1,10 +1,22 @@
+import logging
 import util as u
 import re
+import os
 
+base_dir = os.path.abspath(os.path.dirname(__file__))
+obfuscator_resource_dir = base_dir
+obfuscator_log_file = base_dir + '/obfuscators.log'
+
+enable_logging = True
 
 def apply_crypt(string_const):
     return u.crypt_string(string_const)
 
+#def init():
+#    logging.basicConfig(filename=obfuscator_log_file, level=logging.DEBUG)
+    
+#if enable_logging:
+ #   u.logger('Inside String Encrypt')
 
 def crypt_string(smali_line, class_name):
     """Add the call to the decrypt routine after the string definition"""
